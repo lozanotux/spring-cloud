@@ -9,6 +9,13 @@
 - JQ
 - Docker
 
+## How to start a Microservice
+
+To start a microservice you need to execute the next command inside the project folder:
+```bash
+JAVA_HOME=/usr/lib/jvm/java-11 ./gradlew bootRun
+```
+
 ## Services
 
 ### Config Service
