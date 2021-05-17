@@ -46,3 +46,17 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8099/eureka/
+
+# ========================
+# HISTRIX
+# ========================
+feign:
+  hystrix:
+    enabled: false
+  circuitbreaker:
+    enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
