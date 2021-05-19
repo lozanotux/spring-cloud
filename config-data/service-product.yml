@@ -4,6 +4,7 @@ server:
   # Needed for spring-boot-starter-validation to show messages
   error:
     include-message: always
+    include-binding-errors: always
 
 # To see H2 Console in a web browser
 # Open: http://localhost:8091/h2-console
