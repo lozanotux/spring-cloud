@@ -1,5 +1,7 @@
 # Spring Boot & Spring Cloud
 
+A real world example to put in practice microservices architecture, secure them with spring security and explore [Netflix Spring Cloud](https://spring.io/projects/spring-cloud-netflix) integrations.
+
 ## Requirements
 
 - Java 11 
@@ -19,17 +21,23 @@ JAVA_HOME=/usr/lib/jvm/java-11 ./gradlew bootRun
 ## Services
 
 ### Config Service
-http://localhost:8090/customer-service/default
+
+- **Default URL:** http://localhost:8090/customer-service/default
 
 ### Discovery Service (Eureka)
     
-http://localhost:8099/
+- **Default URL:** http://localhost:8099/
 
 ### Microservice Product
-GET
-    curl -X GET http://localhost:8091/products  -H 'Accept: application/json' | jq '.'
 
-POST
+**Example Requests:**
+- GET
+    ```bash
+    curl -X GET http://localhost:8091/products  -H 'Accept: application/json' | jq '.'
+    ```
+
+- POST
+    ```bash
     curl  --request POST 'localhost:8091/products' \
     --header 'Content-Type: application/json' \
     --data-raw '{
@@ -39,12 +47,18 @@ POST
     "price":30,
     "category":{"id":1,"name": "shoes"}
     }'
+    ```
 
 ### Microservice Customer
-GET
-    curl -X GET http://localhost:8092/customers    -H 'Accept: application/json' | jq '.'
 
-POST
+**Example Requests:**
+- GET
+    ```bash
+    curl -X GET http://localhost:8092/customers    -H 'Accept: application/json' | jq '.'
+    ```
+
+- POST
+    ```bash
     curl --request POST 'localhost:8092/customers' \
     --header 'Content-Type: application/json' \
     --data-raw '
@@ -59,12 +73,18 @@ POST
             }
         }
     '
+    ```
 
 ### Microservice Shopping
-GET
-    curl -X GET http://localhost:8093/invoices/1 -H 'Accept: application/json' | jq '.'
 
-POST
+**Example Requests:**
+- GET
+    ```bash
+    curl -X GET http://localhost:8093/invoices/1 -H 'Accept: application/json' | jq '.'
+    ```
+
+- POST
+    ```bash
     curl  --request POST 'localhost:8093/invoices' \
     --header 'Content-Type: application/json' \
     --data-raw '{
@@ -86,15 +106,22 @@ POST
             }
         ]
     }'
+    ```
 
 ### Gateway Service 
 
-Customer
+**Example Requests:**
+- Customer
+    ```bash
     curl -X GET http://localhost:8080/customers    -H 'Accept: application/json' | jq '.'
+    ```
 
-Products
+- Products
+    ```bash
     curl -X GET http://localhost:8080/products  -H 'Accept: application/json' | jq '.'
+    ```
 
-
-Invoices
+- Invoices
+    ```bash
     curl -X GET http://localhost:8080/invoices/1 -H 'Accept: application/json' | jq '.'
+    ```
